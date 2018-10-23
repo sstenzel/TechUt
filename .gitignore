@@ -21,3 +21,6 @@ target/
 *.zip
 *.tar.gz
 *.rar
+
+.txt
+/inneJava
