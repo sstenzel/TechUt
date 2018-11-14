@@ -2,6 +2,8 @@ package pl.sstenzel.ug.hsqldb.flowers.domain;
 
 
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class Flower {
 
@@ -13,9 +15,15 @@ public class Flower {
 
     public Flower() {
     }
+    public Flower(String name, String pickDate, Boolean dogToxic, int petalAmount) throws ParseException {
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        this.pickDate = new Date(f.parse(pickDate).getTime());
+        this.name = name;
+        this.dogToxic = dogToxic;
+        this.petalAmount = petalAmount;
+    }
 
     public Flower(String name, Date pickDate, Boolean dogToxic, int petalAmount) {
-        super();
         this.name = name;
         this.pickDate = pickDate;
         this.dogToxic = dogToxic;
@@ -62,4 +70,9 @@ public class Flower {
     public void setPetalAmount(int petalAmount) {
         this.petalAmount = petalAmount;
     }
+
+    public String toString() {
+        return "Id: " + getId() +", Name: "+ getName() + ", PickDate: " + getPickDate() +
+                ", Toxic for dogs: " + getDogToxic() + ", Amount of petals: "+ getPetalAmount();
+    };
 }

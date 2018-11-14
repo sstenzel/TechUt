@@ -8,10 +8,10 @@ import java.util.List;
 public interface FlowerService {
 
     boolean addFlower(Flower flower);
-//    Flower getFlower(long id);
-//    List<Flower> getAllFlowers();
+    Flower getFlower(long id);
+    List<Flower> getAllFlowers();
     void deleteAllFlowers() throws SQLException;
-//    Boolean deleteFlower(long id);
-//    void addFlowers(List<Flower> flowers);
+    boolean deleteFlower(long id) throws SQLException;
+    boolean addFlowers(List<Flower> flowers);
 
 }
