@@ -1,11 +1,15 @@
 package pl.sstenzel.ug.javaee.florists.hibernate.domain;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
 public class Card {
 
     private long id;
     private boolean onPaper;
     private boolean electronicVersion;
     private String description;
+    private Flower flower;
 
     public Card(long id, boolean onPaper, boolean electronicVersion, String description) {
         this.id = id;
@@ -14,6 +18,7 @@ public class Card {
         this.description = description;
     }
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public long getId() {
         return id;
     }
@@ -44,5 +49,13 @@ public class Card {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Flower getFlower() {
+        return flower;
+    }
+
+    public void setFlower(Flower flower) {
+        this.flower = flower;
     }
 }

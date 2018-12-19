@@ -1,12 +1,11 @@
-package pl.sstenzel.ug.javaee.florists.restjpa.domain;
+package pl.sstenzel.ug.javaee.florists.hibernate.domain;
 
 import org.hibernate.annotations.Entity;
 import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
-import pl.sstenzel.ug.javaee.florists.hibernate.domain.Flower;
+
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class Person {
     private long id;
     private String name;
     private String surname;
-    private List<Flower> flowers = new ArrayList<>();
+    private List<Flower> flowers = new ArrayList<Flower>();
 
     public Person() {}
 
@@ -34,7 +33,6 @@ public class Person {
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
@@ -42,7 +40,6 @@ public class Person {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -50,7 +47,6 @@ public class Person {
     public String getSurname() {
         return surname;
     }
-
     public void setSurname(String surname) {
         this.surname = surname;
     }
@@ -61,5 +57,12 @@ public class Person {
     }
     public void setFlowers(List<Flower> flowers) {
         this.flowers = flowers;
+    }
+
+    public void addFlower(Flower flower){
+        this.flowers.add(flower);
+    }
+    public void removeFlower(Flower flower){
+        this.flowers.remove(flower);
     }
 }
